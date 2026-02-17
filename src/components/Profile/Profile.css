@@ -1,0 +1,382 @@
+.profile-modal {
+  max-width: 700px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.profile-content {
+  padding: 2rem;
+}
+
+/* Информация о пользователе */
+.profile-info {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid #dcedc1;
+}
+
+.profile-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #52a675, #2d5016);
+  color: white;
+  font-size: 3.5rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  box-shadow: 0 8px 30px rgba(82, 166, 117, 0.4);
+  border: 5px solid white;
+  transition: transform 0.3s;
+}
+
+.profile-avatar:hover {
+  transform: scale(1.05);
+}
+
+.profile-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.profile-info h3 {
+  font-size: 2rem;
+  color: #2d5016;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.profile-email {
+  color: #666;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.provider-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #a8e6cf, #dcedc1);
+  color: #2d5016;
+  padding: 0.5rem 1.2rem;
+  border-radius: 25px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+  box-shadow: 0 3px 10px rgba(82, 166, 117, 0.2);
+}
+
+.profile-status {
+  color: #52a675;
+  font-weight: 600;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+/* Статистика */
+.profile-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.stat-card {
+  background: linear-gradient(135deg, #dcedc1, #a8e6cf);
+  padding: 2rem 1.5rem;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  transition: all 0.3s;
+  box-shadow: 0 4px 15px rgba(82, 166, 117, 0.15);
+}
+
+.stat-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 8px 25px rgba(82, 166, 117, 0.3);
+}
+
+.stat-icon {
+  font-size: 3rem;
+  filter: drop-shadow(2px 2px 5px rgba(0, 0, 0, 0.1));
+}
+
+.stat-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.stat-value {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #2d5016;
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 1rem;
+  color: #52a675;
+  font-weight: 600;
+}
+
+/* Секции профиля */
+.profile-section {
+  margin-bottom: 2.5rem;
+}
+
+.profile-section h4 {
+  font-size: 1.6rem;
+  color: #2d5016;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+}
+
+/* Пустые заказы */
+.empty-orders {
+  text-align: center;
+  padding: 3rem 2rem;
+  color: #666;
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  border-radius: 20px;
+  border: 2px dashed #dcedc1;
+}
+
+.empty-orders p {
+  font-size: 1.2rem;
+}
+
+/* Список заказов */
+.orders-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.order-item {
+  background: linear-gradient(135deg, #f8f9fa, #ffffff);
+  padding: 1.8rem;
+  border-radius: 20px;
+  border-left: 5px solid #52a675;
+  transition: all 0.3s;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+}
+
+.order-item:hover {
+  background: linear-gradient(135deg, #dcedc1, #f8f9fa);
+  transform: translateX(8px);
+  box-shadow: 0 5px 20px rgba(82, 166, 117, 0.2);
+  border-left-width: 8px;
+}
+
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.order-number {
+  font-weight: bold;
+  color: #2d5016;
+  font-size: 1.2rem;
+}
+
+.order-status {
+  padding: 0.5rem 1.2rem;
+  border-radius: 25px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.order-status.completed {
+  background: linear-gradient(135deg, #d4edda, #c3e6cb);
+  color: #155724;
+}
+
+.order-status.processing {
+  background: linear-gradient(135deg, #fff3cd, #ffeaa7);
+  color: #856404;
+}
+
+.order-status.delivery {
+  background: linear-gradient(135deg, #cce5ff, #b8daff);
+  color: #004085;
+}
+
+.order-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  color: #666;
+  font-size: 1.05rem;
+}
+
+.order-details p {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.order-total {
+  color: #52a675;
+  font-weight: bold;
+  font-size: 1.4rem;
+  margin-top: 0.5rem;
+}
+
+/* Настройки */
+.settings-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.setting-btn {
+  background: linear-gradient(135deg, #ffffff, #f8f9fa);
+  border: 2px solid #dcedc1;
+  padding: 1.5rem 1.8rem;
+  border-radius: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-size: 1.1rem;
+  color: #2d5016;
+  font-weight: 600;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.setting-btn:hover {
+  background: linear-gradient(135deg, #dcedc1, #a8e6cf);
+  transform: translateX(8px);
+  border-color: #52a675;
+  box-shadow: 0 4px 15px rgba(82, 166, 117, 0.2);
+}
+
+.setting-btn span:first-child {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.setting-btn span:last-child {
+  font-size: 1.5rem;
+  color: #52a675;
+}
+
+/* Скроллбар */
+.profile-modal::-webkit-scrollbar {
+  width: 8px;
+}
+
+.profile-modal::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.profile-modal::-webkit-scrollbar-thumb {
+  background: #52a675;
+  border-radius: 10px;
+}
+
+.profile-modal::-webkit-scrollbar-thumb:hover {
+  background: #3d7d5a;
+}
+
+/* Адаптив */
+@media (max-width: 768px) {
+  .profile-content {
+    padding: 1.5rem;
+  }
+
+  .profile-avatar {
+    width: 100px;
+    height: 100px;
+    font-size: 3rem;
+  }
+
+  .profile-info h3 {
+    font-size: 1.6rem;
+  }
+
+  .profile-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-card {
+    padding: 1.5rem;
+  }
+
+  .order-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .setting-btn {
+    padding: 1.2rem;
+    font-size: 1rem;
+  }
+}
+
+/* Анимации */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.profile-info,
+.stat-card,
+.order-item,
+.setting-btn {
+  animation: slideIn 0.5s ease-out;
+}
+
+.stat-card:nth-child(1) { animation-delay: 0.1s; }
+.stat-card:nth-child(2) { animation-delay: 0.2s; }
+.stat-card:nth-child(3) { animation-delay: 0.3s; }
+
+.profile-phone,
+.profile-address {
+  color: #666;
+  font-size: 1rem;
+  margin: 0.3rem 0;
+}
+
+.btn-edit-profile {
+  margin-top: 1.5rem;
+  background: #52a675;
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-edit-profile:hover {
+  background: #3d7d5a;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(82, 166, 117, 0.3);
+}
