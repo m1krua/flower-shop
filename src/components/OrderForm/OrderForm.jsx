@@ -30,25 +30,25 @@ function OrderForm({ onSubmit, onClose, totalPrice, cart }) {
     ).join('\n')
 
     const message = `
-🌸 *НОВЫЙ ЗАКАЗ*
+ *НОВЫЙ ЗАКАЗ*
 
-👤 *Имя:* ${formData.name}
-📱 *Телефон:* +996${formData.phone}
-📍 *Адрес:* ${formData.address}
-🚚 *Доставка:* ${formData.delivery === 'courier' ? 'Курьером' : 'Самовывоз'}
+ *Имя:* ${formData.name}
+ *Телефон:* +996${formData.phone}
+ *Адрес:* ${formData.address}
+ *Доставка:* ${formData.delivery === 'courier' ? 'Курьером' : 'Самовывоз'}
 
-🛍️ *ТОВАРЫ:*
+ *ТОВАРЫ:*
 ${itemsList}
 
-💰 *Товары:* ${totalPrice} сом
-💰 *Доставка:* ${deliveryCost} сом
-💰 *ИТОГО:* ${total} сом
+ *Товары:* ${totalPrice} сом
+ *Доставка:* ${deliveryCost} сом
+ *ИТОГО:* ${total} сом
 
-${formData.comment ? `💬 *Комментарий:* ${formData.comment}` : ''}
+${formData.comment ? ` *Комментарий:* ${formData.comment}` : ''}
     `.trim()
 
     // Ваш номер WhatsApp (замените на свой!)
-    const whatsappNumber = '996500331063' // ⭐ ВСТАВЬТЕ СЮДА ВАШ НОМЕР
+    const whatsappNumber = '996702868272' // ⭐ ВСТАВЬТЕ СЮДА ВАШ НОМЕР
 
     // Открываем WhatsApp с сообщением
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`
