@@ -145,7 +145,7 @@ function LoginModal({ onLogin, onClose }) {
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal login-modal" onClick={(e) => e.stopPropagation()}>
         <div className="modal-header">
-          <h2>{isRegister ? '📝 Регистрация' : '🔐 Вход'}</h2>
+          <h2>{isRegister ? ' Регистрация' : ' Вход'}</h2>
           <button className="close-btn" onClick={onClose}>✕</button>
         </div>
 

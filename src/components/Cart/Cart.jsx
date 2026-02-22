@@ -1,11 +1,12 @@
 import './Cart.css'
+import trash from "../../assets/trash.svg"
 
 function Cart({ cart, onClose, onUpdateQuantity, onRemove, totalPrice, onCheckout }) {
   return (
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal cart-modal" onClick={(e) => e.stopPropagation()}>
         <div className="modal-header">
-          <h2>🛒 Корзина</h2>
+          <h2>Корзина</h2>
           <button className="close-btn" onClick={onClose}>✕</button>
         </div>
 
@@ -22,7 +23,7 @@ function Cart({ cart, onClose, onUpdateQuantity, onRemove, totalPrice, onCheckou
                   <img src={item.image} alt={item.name} />
                   <div className="cart-item-info">
                     <h4>{item.name}</h4>
-                    <p className="cart-item-price">{item.price} ₽</p>
+                    <p className="cart-item-price">{item.price} сом</p>
                   </div>
                   <div className="cart-item-controls">
                     <button 
@@ -43,14 +44,14 @@ function Cart({ cart, onClose, onUpdateQuantity, onRemove, totalPrice, onCheckou
                     className="remove-btn"
                     onClick={() => onRemove(item.id)}
                   >
-                    🗑️
+                    <img src={trash} alt="" />
                   </button>
                 </div>
               ))}
             </div>
 
             <div className="cart-total">
-              <h3>Итого: {totalPrice} ₽</h3>
+              <h3>Итого: {totalPrice} сом</h3>
             </div>
 
             <div className="cart-buttons">

@@ -43,7 +43,7 @@ function Profile({ user, onClose, orderHistory, onUpdateUser }) {
       <div className="modal-overlay" onClick={onClose}>
         <div className="modal profile-modal" onClick={(e) => e.stopPropagation()}>
           <div className="modal-header">
-            <h2>👤 Личный кабинет</h2>
+            <h2>Личный кабинет</h2>
             <button className="close-btn" onClick={onClose}>✕</button>
           </div>
 
@@ -63,10 +63,10 @@ function Profile({ user, onClose, orderHistory, onUpdateUser }) {
               {user.address && <p className="profile-address">📍 {user.address}</p>}
               {user.provider === 'google' && (
                 <span className="provider-badge">
-                  🔐 Вход через Google
+                   Вход через Google
                 </span>
               )}
-              <p className="profile-status">✅ Активный пользователь</p>
+              <p className="profile-status"> Активный пользователь</p>
               
               <button 
                 className="btn btn-edit-profile"
@@ -78,14 +78,14 @@ function Profile({ user, onClose, orderHistory, onUpdateUser }) {
 
             <div className="profile-stats">
               <div className="stat-card">
-                <div className="stat-icon">🛍️</div>
+                <div className="stat-icon"></div>
                 <div className="stat-info">
                   <span className="stat-value">{orderHistory?.length || 0}</span>
                   <span className="stat-label">Заказов</span>
                 </div>
               </div>
               <div className="stat-card">
-                <div className="stat-icon">💰</div>
+                <div className="stat-icon"></div>
                 <div className="stat-info">
                   <span className="stat-value">
                     {orderHistory?.reduce((sum, order) => sum + order.total, 0) || 0} ₽
@@ -94,7 +94,7 @@ function Profile({ user, onClose, orderHistory, onUpdateUser }) {
                 </div>
               </div>
               <div className="stat-card">
-                <div className="stat-icon">⭐</div>
+                <div className="stat-icon"></div>
                 <div className="stat-info">
                   <span className="stat-value">VIP</span>
                   <span className="stat-label">Статус</span>
@@ -103,7 +103,7 @@ function Profile({ user, onClose, orderHistory, onUpdateUser }) {
             </div>
 
             <div className="profile-section">
-              <h4>📦 История заказов</h4>
+              <h4> История заказов</h4>
               {!orderHistory || orderHistory.length === 0 ? (
                 <div className="empty-orders">
                   <p>У вас пока нет заказов</p>
@@ -115,15 +115,15 @@ function Profile({ user, onClose, orderHistory, onUpdateUser }) {
                       <div className="order-header">
                         <span className="order-number">Заказ #{order.id}</span>
                         <span className={`order-status ${order.status}`}>
-                          {order.status === 'completed' && '✅ Доставлен'}
-                          {order.status === 'processing' && '⏳ В обработке'}
-                          {order.status === 'delivery' && '🚚 В доставке'}
+                          {order.status === 'completed' && ' Доставлен'}
+                          {order.status === 'processing' && ' В обработке'}
+                          {order.status === 'delivery' && ' В доставке'}
                         </span>
                       </div>
                       <div className="order-details">
-                        <p>📅 {order.date}</p>
-                        <p>🛍️ Товаров: {order.items}</p>
-                        <p className="order-total">💰 {order.total} ₽</p>
+                        <p> {order.date}</p>
+                        <p> Товаров: {order.items}</p>
+                        <p className="order-total"> {order.total} ₽</p>
                       </div>
                     </div>
                   ))}
@@ -132,22 +132,22 @@ function Profile({ user, onClose, orderHistory, onUpdateUser }) {
             </div>
 
             <div className="profile-section">
-              <h4>⚙️ Настройки</h4>
+              <h4> Настройки</h4>
               <div className="settings-list">
                 <button className="setting-btn" onClick={() => setShowEditProfile(true)}>
-                  <span>✏️ Редактировать профиль</span>
+                  <span> Редактировать профиль</span>
                   <span>→</span>
                 </button>
                 <button className="setting-btn" onClick={() => setShowChangePassword(true)}>
-                  <span>🔒 Изменить пароль</span>
+                  <span> Изменить пароль</span>
                   <span>→</span>
                 </button>
                 <button className="setting-btn">
-                  <span>📍 Мои адреса</span>
+                  <span> Мои адреса</span>
                   <span>→</span>
                 </button>
                 <button className="setting-btn">
-                  <span>🔔 Уведомления</span>
+                  <span> Уведомления</span>
                   <span>→</span>
                 </button>
               </div>

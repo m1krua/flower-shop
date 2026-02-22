@@ -1,10 +1,12 @@
 import './Header.css'
+import shop from "../../assets/shop.svg"
+import logout from "../../assets/logout.svg"
 
 function Header({ user, onLoginClick, onLogoutClick, onProfileClick, cartCount, onCartClick }) {
   return (
     <header className="header">
       <div className="logo">
-        🌸 Цветочный Рай
+        Flore
       </div>
       <nav className="nav">
         <a href="#catalog">Каталог</a>
@@ -13,7 +15,7 @@ function Header({ user, onLoginClick, onLogoutClick, onProfileClick, cartCount, 
       </nav>
       <div className="nav-buttons">
         <button className="btn cart-btn" onClick={onCartClick}>
-          🛒 Корзина
+          <img src={shop} alt="" />
           {cartCount > 0 && <span className="cart-count">{cartCount}</span>}
         </button>
         {user ? (
@@ -22,12 +24,12 @@ function Header({ user, onLoginClick, onLogoutClick, onProfileClick, cartCount, 
               {user.avatar ? (
                 <img src={user.avatar} alt={user.name} className="user-avatar" />
               ) : (
-                '👤'
+                ''
               )}
-              {' '}{user.name}
+              {/* {' '}{user.name} */}
             </button>
             <button className="btn btn-danger" onClick={onLogoutClick}>
-              Выйти
+              <img src={logout} alt="" />
             </button>
           </>
         ) : (
