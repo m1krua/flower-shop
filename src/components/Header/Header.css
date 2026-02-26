@@ -173,3 +173,33 @@
   object-fit: cover;
   border: 2px solid rgb(13, 129, 7);
 }
+
+.nav-link {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.95rem;
+  color: #2c2c2c;
+  padding: 6px 0;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: #4a7c59;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #4a7c59;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}

@@ -56,6 +56,8 @@
 .avatar-buttons .btn {
   padding: 0.8rem 1.5rem;
   font-size: 0.95rem;
+  border-radius: 50px;
+  background-color: #ffffff;
 }
 
 .avatar-hint {
@@ -72,7 +74,7 @@
 .form-group label {
   display: block;
   margin-bottom: 0.5rem;
-  color: #2d5016;
+  color: #3d4936;
   font-weight: 600;
   font-size: 1.1rem;
 }
@@ -106,10 +108,11 @@
   margin-top: 2rem;
 }
 
-.btn-submit {
+.form-buttons .btn-submit {
   width: 100%;
   padding: 1.2rem;
   font-size: 1.2rem;
+  background-color: #e6e4e4;
 }
 
 /* Адаптив */

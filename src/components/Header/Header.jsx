@@ -2,16 +2,16 @@ import './Header.css'
 import shop from "../../assets/shop.svg"
 import logout from "../../assets/logout.svg"
 
-function Header({ user, onLoginClick, onLogoutClick, onProfileClick, cartCount, onCartClick }) {
+function Header({ user, onLoginClick, onLogoutClick, onProfileClick, cartCount, onCartClick, onHomeClick, onAboutClick, onContactClick }) {
   return (
     <header className="header">
-      <div className="logo">
+      <div className="logo" onClick={onHomeClick} style={{ cursor: 'pointer' }}>
         Flore
       </div>
       <nav className="nav">
-        <a href="#catalog">Каталог</a>
-        <a href="#about">О нас</a>
-        <a href="#contacts">Контакты</a>
+        <button className="nav-link" onClick={onHomeClick}>Каталог</button>
+        <button className="nav-link" onClick={onAboutClick}>О нас</button>
+        <button className="nav-link" onClick={onContactClick}>Контакты</button>
       </nav>
       <div className="nav-buttons">
         <button className="btn cart-btn" onClick={onCartClick}>
@@ -26,7 +26,6 @@ function Header({ user, onLoginClick, onLogoutClick, onProfileClick, cartCount, 
               ) : (
                 ''
               )}
-              {/* {' '}{user.name} */}
             </button>
             <button className="btn btn-danger" onClick={onLogoutClick}>
               <img src={logout} alt="" />

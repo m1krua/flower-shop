@@ -6,9 +6,14 @@ import Cart from './components/Cart/Cart'
 import OrderForm from './components/OrderForm/OrderForm'
 import LoginModal from './components/LoginModal/LoginModal'
 import Profile from './components/Profile/Profile'
+import About from './components/About/About'
 import './App.css'
+import Contacts from './components/Contacts/Contacts'
+
+// { currentPage === 'contacts' && <Contacts /> }
 
 function App() {
+  const [currentPage, setCurrentPage] = useState('home') // ← ДОБАВЛЕНО
   const [currentUser, setCurrentUser] = useState(null)
   const [cart, setCart] = useState([])
   const [orderHistory, setOrderHistory] = useState([])
@@ -20,11 +25,9 @@ function App() {
 
   useEffect(() => {
     const savedCurrentUser = localStorage.getItem('currentUser')
-
     if (savedCurrentUser) {
       const currentUserEmail = JSON.parse(savedCurrentUser).email
       const users = JSON.parse(localStorage.getItem('users') || '{}')
-
       if (users[currentUserEmail]) {
         const userData = users[currentUserEmail]
         setCurrentUser({
@@ -85,9 +88,7 @@ function App() {
     { id: 23, name: 'Букет "Париж"', price: 3600, image: 'https://i.pinimg.com/736x/51/56/b0/5156b094fba8e543b15f2550d6907ae3.jpg', category: 'Цветы', description: 'Розы и пионы' },
     { id: 24, name: 'Маршмеллоу набор', price: 1100, image: 'https://i.pinimg.com/736x/9a/7c/54/9a7c54189853118c9a06dfeabc44bdfe.jpg', category: 'Сладости', description: '15 шт' },
     { id: 25, name: 'Композиция "Сердце"', price: 5200, image: 'https://i.pinimg.com/1200x/e9/3e/1c/e93e1c84762a9c3f6da8d250a6ca5472.jpg', category: 'Цветы', description: 'Розы в форме сердца' },
-
-  ];
-  
+  ]
 
   const categories = ['Все', 'Цветы', 'Подарки', 'Сладости']
 
@@ -128,21 +129,17 @@ function App() {
 
   const handleLogin = (userData) => {
     const users = JSON.parse(localStorage.getItem('users') || '{}')
-
     if (!userData.name || userData.name.trim() === '') {
       userData.name = 'Пользователь'
     }
-
     if (users[userData.email]) {
       const existingUser = users[userData.email]
-
       if (existingUser.provider === 'local' && userData.password) {
         if (existingUser.password !== userData.password) {
           alert('Неверный пароль')
           return
         }
       }
-
       setCurrentUser({
         name: existingUser.name || userData.name || 'Пользователь',
         email: existingUser.email,
@@ -167,7 +164,6 @@ function App() {
       }
       users[userData.email] = newUser
       localStorage.setItem('users', JSON.stringify(users))
-
       setCurrentUser({
         name: newUser.name,
         email: newUser.email,
@@ -179,7 +175,6 @@ function App() {
       setCart([])
       setOrderHistory([])
     }
-
     localStorage.setItem('currentUser', JSON.stringify({ email: userData.email }))
     setShowLogin(false)
   }
@@ -194,7 +189,6 @@ function App() {
       }
       localStorage.setItem('users', JSON.stringify(users))
     }
-
     setCurrentUser(null)
     setCart([])
     setOrderHistory([])
@@ -205,7 +199,6 @@ function App() {
   const handleUpdateUser = (updatedData) => {
     const updatedUser = { ...currentUser, ...updatedData }
     setCurrentUser(updatedUser)
-
     const users = JSON.parse(localStorage.getItem('users') || '{}')
     if (users[currentUser.email]) {
       users[currentUser.email] = {
@@ -224,7 +217,6 @@ function App() {
       total: getTotalPrice() + (orderData.delivery === 'courier' ? 300 : 0),
       status: 'processing'
     }
-
     setOrderHistory([newOrder, ...orderHistory])
     alert('Спасибо за заказ! Мы свяжемся с вами в ближайшее время.')
     setCart([])
@@ -233,6 +225,7 @@ function App() {
 
   return (
     <div className="app">
+
       <Header
         user={currentUser}
         onLoginClick={() => setShowLogin(true)}
@@ -240,36 +233,48 @@ function App() {
         onProfileClick={() => setShowProfile(true)}
         cartCount={cart.reduce((sum, item) => sum + item.quantity, 0)}
         onCartClick={() => setShowCart(true)}
+        onHomeClick={() => setCurrentPage('home')}
+        onAboutClick={() => setCurrentPage('about')}
+        onContactClick={() => setCurrentPage('contacts')}
       />
 
-      <Slider />
+      {/* ✅ Главная страница */}
+      {currentPage === 'home' && (
+        <>
+          <Slider />
+          <main className="main-content">
+            <section className="categories">
+              <h2>Категории</h2>
+              <div className="category-buttons">
+                {categories.map(cat => (
+                  <button
+                    key={cat}
+                    className={`category-btn ${selectedCategory === cat ? 'active' : ''}`}
+                    onClick={() => setSelectedCategory(cat)}
+                  >
+                    {cat}
+                  </button>
+                ))}
+              </div>
+            </section>
+            <section className="products">
+              {filteredProducts.map(product => (
+                <ProductCard
+                  key={product.id}
+                  product={product}
+                  onAddToCart={addToCart}
+                />
+              ))}
+            </section>
+          </main>
+        </>
+      )}
 
-      <main className="main-content">
-        <section className="categories">
-          <h2>Категории</h2>
-          <div className="category-buttons">
-            {categories.map(cat => (
-              <button
-                key={cat}
-                className={`category-btn ${selectedCategory === cat ? 'active' : ''}`}
-                onClick={() => setSelectedCategory(cat)}
-              >
-                {cat}
-              </button>
-            ))}
-          </div>
-        </section>
+      {currentPage === 'about' && (
+        <About />
+      )}
 
-        <section className="products">
-          {filteredProducts.map(product => (
-            <ProductCard
-              key={product.id}
-              product={product}
-              onAddToCart={addToCart}
-            />
-          ))}
-        </section>
-      </main>
+      {currentPage === 'contacts' && <Contacts />}
 
       {showLogin && (
         <LoginModal
@@ -306,9 +311,10 @@ function App() {
           onSubmit={handleOrder}
           onClose={() => setShowOrder(false)}
           totalPrice={getTotalPrice()}
-          cart={cart}  // ⭐ ДОБАВЬТЕ ЭТО
+          cart={cart}
         />
       )}
+
     </div>
   )
 }

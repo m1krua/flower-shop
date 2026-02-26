@@ -10,23 +10,23 @@ function Profile({ user, onClose, orderHistory, onUpdateUser }) {
   const handleSaveProfile = (updatedData) => {
     onUpdateUser(updatedData)
     setShowEditProfile(false)
-    alert('✅ Профиль успешно обновлен!')
+    alert('Профиль успешно обновлен!')
   }
 
   const handleChangePassword = (passwordData) => {
     console.log('Смена пароля:', passwordData)
     setShowChangePassword(false)
-    alert('✅ Пароль успешно изменен!')
+    alert('Пароль успешно изменен!')
   }
 
   // ⭐ ПРОВЕРКА: если user не загружен - не рендерим
   if (!user || !user.name) {
-    console.error('❌ User не загружен:', user)
+    console.error(' User не загружен:', user)
     return (
       <div className="modal-overlay" onClick={onClose}>
         <div className="modal profile-modal" onClick={(e) => e.stopPropagation()}>
           <div className="modal-header">
-            <h2>⚠️ Ошибка загрузки</h2>
+            <h2> Ошибка загрузки</h2>
             <button className="close-btn" onClick={onClose}>✕</button>
           </div>
           <div style={{ padding: '2rem', textAlign: 'center' }}>
@@ -72,7 +72,7 @@ function Profile({ user, onClose, orderHistory, onUpdateUser }) {
                 className="btn btn-edit-profile"
                 onClick={() => setShowEditProfile(true)}
               >
-                ✏️ Редактировать профиль
+                Редактировать профиль
               </button>
             </div>
 

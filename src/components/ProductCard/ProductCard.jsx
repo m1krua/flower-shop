@@ -12,11 +12,11 @@ function ProductCard({ product, onAddToCart }) {
         <p className="product-description">{product.description}</p>
         <div className="product-footer">
           <span className="product-price">{product.price} сом</span>
-          <button 
-            className="btn-add-cart" 
+          <button
+            className="btn-add-cart"
             onClick={() => onAddToCart(product)}
           >
-            + В корзину
+            В корзину
           </button>
         </div>
       </div>

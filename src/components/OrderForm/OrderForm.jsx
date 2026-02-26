@@ -20,11 +20,9 @@ function OrderForm({ onSubmit, onClose, totalPrice, cart }) {
   const handleSubmit = (e) => {
     e.preventDefault()
 
-    // Формируем сообщение для WhatsApp
     const deliveryCost = formData.delivery === 'courier' ? 300 : 0
     const total = totalPrice + deliveryCost
 
-    // Список товаров
     const itemsList = cart.map(item =>
       `${item.name} x${item.quantity} - ${item.price * item.quantity} сом`
     ).join('\n')
@@ -47,14 +45,11 @@ ${itemsList}
 ${formData.comment ? ` *Комментарий:* ${formData.comment}` : ''}
     `.trim()
 
-    // Ваш номер WhatsApp (замените на свой!)
-    const whatsappNumber = '996702868272' // ⭐ ВСТАВЬТЕ СЮДА ВАШ НОМЕР
+    const whatsappNumber = '996702868272' //  СЮДА НОМЕР
 
-    // Открываем WhatsApp с сообщением
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`
     window.open(whatsappUrl, '_blank')
 
-    // Сохраняем заказ локально
     onSubmit(formData)
   }
 
@@ -62,7 +57,7 @@ ${formData.comment ? ` *Комментарий:* ${formData.comment}` : ''}
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal order-modal" onClick={(e) => e.stopPropagation()}>
         <div className="modal-header">
-          <h2>📝 Оформление заказа</h2>
+          <h2> Оформление заказа</h2>
           <button className="close-btn" onClick={onClose}>✕</button>
         </div>
 
@@ -145,12 +140,11 @@ ${formData.comment ? ` *Комментарий:* ${formData.comment}` : ''}
           </div>
 
           <div className="whatsapp-notice">
-            <p>✅ После нажатия кнопки откроется WhatsApp с готовым сообщением</p>
+            <p> После нажатия кнопки откроется WhatsApp с готовым сообщением</p>
           </div>
 
           <div className="form-buttons">
             <button type="submit" className="btn btn-primary btn-submit btn-whatsapp">
-              <span className="whatsapp-icon">📱</span>
               Отправить в WhatsApp
             </button>
             <button type="button" className="btn btn-secondary" onClick={onClose}>

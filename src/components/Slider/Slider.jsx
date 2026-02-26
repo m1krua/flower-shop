@@ -6,17 +6,17 @@ function Slider() {
 
   const slides = [
     {
-      image: 'https://i.pinimg.com/1200x/11/16/e7/1116e7f57a02aead23b085c9ebe4fa17.jpg',
+      image: 'https://images4.alphacoders.com/140/thumb-1920-1405624.png',
       title: 'Свежие цветы каждый день',
       subtitle: 'Доставка по городу за 2 часа'
     },
     {
-      image: 'https://i.pinimg.com/1200x/5f/c7/21/5fc721da646b95c1e475914e07117a30.jpg',
+      image: 'https://images6.alphacoders.com/107/thumb-1920-1070736.jpg',
       title: 'Эксклюзивные букеты',
       subtitle: 'Создаем композиции для особых моментов'
     },
     {
-      image: 'https://i.pinimg.com/1200x/d9/7f/cf/d97fcf132da79d21d35da3f340e78f0b.jpg',
+      image: 'https://giffiles.alphacoders.com/193/1936.gif',
       title: 'Подарки с душой',
       subtitle: 'Сладости и мягкие игрушки'
     }

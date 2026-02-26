@@ -1,0 +1,422 @@
+/* ===========================
+   FLORE — Flower Shop About
+   =========================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Inter:wght@300;400;500&display=swap');
+
+:root {
+  --green:        #4a7c59;
+  --green-light:  #a8c5a0;
+  --green-pale:   #e8f0e5;
+  --cream:        #f9f5f0;
+  --dark:         #2c2c2c;
+  --gray:         #7a7a7a;
+  --white:        #ffffff;
+  --pink-soft:    #f5e6e8;
+  --serif:        'Cormorant Garamond', Georgia, serif;
+  --sans:         'Inter', sans-serif;
+  --radius:       16px;
+  --shadow:       0 6px 28px rgba(0,0,0,0.07);
+  --shadow-green: 0 12px 36px rgba(74,124,89,0.16);
+  --transition:   0.3s ease;
+}
+
+/* ---- Базовые ---- */
+.about {
+  background: var(--cream);
+  color: var(--dark);
+  font-family: var(--sans);
+}
+
+/* ---- HERO ---- */
+.about__hero {
+  position: relative;
+  min-height: 480px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url('/images/hero-flowers.jpg') center/cover no-repeat;
+  text-align: center;
+  overflow: hidden;
+}
+
+.about__hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(74,124,89,0.55) 0%,
+    rgba(44,44,44,0.4) 100%
+  );
+}
+
+.about__hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 20px;
+}
+
+.about__hero-tag {
+  display: inline-block;
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(6px);
+  color: var(--white);
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 6px 18px;
+  border-radius: 50px;
+  border: 1px solid rgba(255,255,255,0.35);
+  margin-bottom: 20px;
+}
+
+.about__title {
+  font-family: var(--serif);
+  font-size: clamp(3.5rem, 9vw, 7rem);
+  font-weight: 300;
+  color: var(--white);
+  letter-spacing: 0.1em;
+  margin: 0 0 16px;
+  text-shadow: 0 2px 20px rgba(0,0,0,0.25);
+}
+
+.about__subtitle {
+  font-size: clamp(0.95rem, 2.2vw, 1.2rem);
+  color: rgba(255,255,255,0.88);
+  max-width: 520px;
+  line-height: 1.75;
+  margin: 0 auto;
+}
+
+/* ---- Контент ---- */
+.about__content {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 90px 24px;
+}
+
+/* ---- История ---- */
+.about__block--story {
+  display: flex;
+  gap: 64px;
+  align-items: center;
+  margin-bottom: 90px;
+  flex-wrap: wrap;
+}
+
+.about__image-wrap {
+  flex: 1;
+  min-width: 280px;
+}
+
+.about__image {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-green);
+  transition: transform var(--transition);
+}
+
+.about__image:hover {
+  transform: scale(1.02);
+}
+
+.about__text {
+  flex: 1;
+  min-width: 280px;
+}
+
+.about__text p {
+  font-size: 1rem;
+  line-height: 1.9;
+  color: var(--gray);
+  margin-bottom: 18px;
+}
+
+/* ---- Статистика ---- */
+.about__stats {
+  display: flex;
+  gap: 32px;
+  margin-top: 36px;
+  flex-wrap: wrap;
+}
+
+.about__stat {
+  display: flex;
+  flex-direction: column;
+}
+
+.about__stat-number {
+  font-family: var(--serif);
+  font-size: 2.4rem;
+  color: var(--green);
+  font-weight: 600;
+  line-height: 1;
+}
+
+.about__stat-label {
+  font-size: 0.8rem;
+  color: var(--gray);
+  margin-top: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* ---- Заголовки ---- */
+.about__heading {
+  font-family: var(--serif);
+  font-size: clamp(1.7rem, 3.5vw, 2.5rem);
+  font-weight: 400;
+  color: var(--green);
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.about__heading--center {
+  text-align: center;
+}
+
+/* ---- Почему мы ---- */
+.about__why {
+  margin-bottom: 90px;
+}
+
+.about__why-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+  margin-top: 44px;
+}
+
+.about__why-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 36px 28px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  transition: transform var(--transition), box-shadow var(--transition);
+  border-top: 3px solid transparent;
+}
+
+.about__why-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-green);
+  border-top-color: var(--green-light);
+}
+
+.about__why-icon {
+  font-size: 2.6rem;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.about__why-card h3 {
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  color: var(--dark);
+  margin-bottom: 10px;
+}
+
+.about__why-card p {
+  font-size: 0.9rem;
+  color: var(--gray);
+  line-height: 1.75;
+  margin: 0;
+}
+
+/* ---- Услуги ---- */
+.about__services {
+  margin-bottom: 90px;
+}
+
+.about__services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 24px;
+  margin-top: 44px;
+}
+
+.about__service-item {
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--white);
+  box-shadow: var(--shadow);
+  transition: transform var(--transition);
+}
+
+.about__service-item:hover {
+  transform: translateY(-6px);
+}
+
+.about__service-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+.about__service-info {
+  padding: 20px 22px;
+}
+
+.about__service-info h3 {
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  color: var(--green);
+  margin-bottom: 6px;
+}
+
+.about__service-info p {
+  font-size: 0.85rem;
+  color: var(--gray);
+  margin: 0;
+}
+
+/* ---- Команда ---- */
+.about__team {
+  margin-bottom: 90px;
+  text-align: center;
+}
+
+.about__team-desc {
+  color: var(--gray);
+  margin-bottom: 44px;
+  font-size: 1rem;
+}
+
+.about__team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 36px;
+}
+
+.about__team-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.about__team-photo {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--green-light);
+  margin-bottom: 18px;
+  transition: border-color var(--transition), transform var(--transition);
+  box-shadow: var(--shadow);
+}
+
+.about__team-photo:hover {
+  border-color: var(--green);
+  transform: scale(1.06);
+}
+
+.about__team-card h3 {
+  font-family: var(--serif);
+  font-size: 1.35rem;
+  color: var(--dark);
+  margin-bottom: 6px;
+}
+
+.about__team-card p {
+  font-size: 0.85rem;
+  color: var(--gray);
+}
+
+/* ---- CTA ---- */
+.about__cta {
+  text-align: center;
+  background: linear-gradient(135deg, var(--green-pale) 0%, var(--pink-soft) 100%);
+  border-radius: 24px;
+  padding: 70px 40px;
+}
+
+.about__cta h2 {
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  color: var(--green);
+  margin-bottom: 14px;
+  font-weight: 400;
+}
+
+.about__cta p {
+  color: var(--gray);
+  font-size: 1rem;
+  max-width: 480px;
+  margin: 0 auto 36px;
+  line-height: 1.75;
+}
+
+.about__cta-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.about__btn {
+  padding: 14px 36px;
+  border-radius: 50px;
+  font-size: 0.95rem;
+  font-family: var(--sans);
+  font-weight: 500;
+  text-decoration: none;
+  transition: all var(--transition);
+  cursor: pointer;
+  display: inline-block;
+}
+
+.about__btn--primary {
+  background: var(--green);
+  color: var(--white);
+  border: 2px solid var(--green);
+}
+
+.about__btn--primary:hover {
+  background: #3a6348;
+  border-color: #3a6348;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(74,124,89,0.3);
+}
+
+.about__btn--outline {
+  background: transparent;
+  color: var(--green);
+  border: 2px solid var(--green);
+}
+
+.about__btn--outline:hover {
+  background: var(--green);
+  color: var(--white);
+  transform: translateY(-2px);
+}
+
+/* ---- Адаптив ---- */
+@media (max-width: 768px) {
+  .about__hero {
+    min-height: 360px;
+  }
+
+  .about__block--story {
+    flex-direction: column;
+    gap: 36px;
+  }
+
+  .about__image {
+    height: 300px;
+  }
+
+  .about__content {
+    padding: 60px 16px;
+  }
+
+  .about__stats {
+    gap: 24px;
+  }
+
+  .about__cta {
+    padding: 50px 20px;
+  }
+}

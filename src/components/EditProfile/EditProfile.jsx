@@ -50,7 +50,7 @@ function EditProfile({ user, onSave, onClose }) {
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal edit-profile-modal" onClick={(e) => e.stopPropagation()}>
         <div className="modal-header">
-          <h2>✏️ Редактировать профиль</h2>
+          <h2> Редактировать профиль</h2>
           <button className="close-btn" onClick={onClose}>✕</button>
         </div>
 
@@ -68,7 +68,7 @@ function EditProfile({ user, onSave, onClose }) {
             </div>
             <div className="avatar-buttons">
               <label htmlFor="avatar-input" className="btn btn-primary">
-                📷 Загрузить фото
+                Загрузить фото
               </label>
               <input
                 id="avatar-input"
@@ -83,7 +83,7 @@ function EditProfile({ user, onSave, onClose }) {
                   className="btn btn-danger"
                   onClick={handleRemoveImage}
                 >
-                  🗑️ Удалить
+                   Удалить
                 </button>
               )}
             </div>
@@ -92,7 +92,7 @@ function EditProfile({ user, onSave, onClose }) {
 
           {/* Имя */}
           <div className="form-group">
-            <label>👤 Имя</label>
+            <label>Имя</label>
             <input
               type="text"
               name="name"
@@ -105,7 +105,7 @@ function EditProfile({ user, onSave, onClose }) {
 
           {/* Email */}
           <div className="form-group">
-            <label>📧 Email</label>
+            <label>Email</label>
             <input
               type="email"
               name="email"
@@ -118,19 +118,19 @@ function EditProfile({ user, onSave, onClose }) {
 
           {/* Телефон */}
           <div className="form-group">
-            <label>📱 Телефон</label>
+            <label>Телефон</label>
             <input
               type="tel"
               name="phone"
               value={formData.phone}
               onChange={handleChange}
-              placeholder="+7 (___) ___-__-__"
+              placeholder="+966 (___) __-__-__"
             />
           </div>
 
           {/* Адрес */}
           <div className="form-group">
-            <label>📍 Адрес доставки</label>
+            <label>Адрес доставки</label>
             <textarea
               name="address"
               value={formData.address}
@@ -142,7 +142,7 @@ function EditProfile({ user, onSave, onClose }) {
 
           <div className="form-buttons">
             <button type="submit" className="btn btn-primary btn-submit">
-              💾 Сохранить изменения
+              Сохранить изменения
             </button>
             <button type="button" className="btn btn-secondary" onClick={onClose}>
               Отмена
